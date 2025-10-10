@@ -13,25 +13,21 @@ using namespace std;
 
 int main() {
 
-    int arr[6] = {50,80,70,10,16,18};
+    string s;
+    cin>>s;
 
-    sort(arr , arr + size(arr));
+    int freq[26] = {0};
 
-    int left = 0 , right = size(arr) - 1, target = 9;
+    bool isValid = true;
 
-    while (left <= right) {
-        int mid = (left +right) /2;
+    for (int i =0;i<s.size();i++) {
+        freq[s[i] - 'a']++;
+    }
 
-        if (arr[mid] == target) {
-            cout<<mid;
-            return mid;
-        }else if (arr[mid] > target) {
-            right = mid -1;
-        }else {
-            left = mid +1;
+    for (int i =0 ;i< 26;i++) {
+        if (freq[i] == 0) {
+            isValid = false;
         }
     }
-    return -1;
-
-    return 0;
+    cout<< (isValid ? "valid":"not valid");
 }
