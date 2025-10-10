@@ -13,28 +13,25 @@ using namespace std;
 
 int main() {
 
-    int arr[3][3];
+    int arr[6] = {50,80,70,10,16,18};
 
-    for (int r=0;r<3;r++) {
-        for (int c=0;c<3;c++) {
-            cin>>arr[r][c];
+    sort(arr , arr + size(arr));
+
+    int left = 0 , right = size(arr) - 1, target = 9;
+
+    while (left <= right) {
+        int mid = (left +right) /2;
+
+        if (arr[mid] == target) {
+            cout<<mid;
+            return mid;
+        }else if (arr[mid] > target) {
+            right = mid -1;
+        }else {
+            left = mid +1;
         }
     }
-
-    for (int r=0;r<3;r++) {
-        int sumofEven =0,sumofOdd = 0;
-
-        for (int c=0;c<3;c++) {
-            if (arr[r][c] % 2 == 0) {
-                sumofEven+= arr[r][c];
-            }else {
-                sumofOdd += arr[r][c];
-            }
-        }
-        cout<<sumofEven<<" " <<sumofOdd;
-        cout<<endl;
-
-    }
+    return -1;
 
     return 0;
 }
