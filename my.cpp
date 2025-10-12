@@ -4,10 +4,17 @@
 using namespace std;
 
 int main() {
-    double m,n,a;
-    cin>>m>>n>>a;
+    int x;
+    cin>>x;
 
-    long long flagstones = ceil(n/a) * ceil(m/a);
-    cout<<flagstones;
+    int arr[14] = {4,7,44,47,74,77,444,477,474,447,744,747,774,777};
+
+    for (int i = 0;i <size(arr);i++) {
+        if (x % arr[i] == 0) {
+            cout<<"YES";
+            return 0;
+        }
+    }
+    cout<<"NO";
 
 }
