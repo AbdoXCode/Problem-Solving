@@ -3,12 +3,24 @@
 using namespace std;
 
 int main() {
-    double l,p,q,t;
+    int x;
+    cin>>x;
 
-    cin>>l>>p>>q;
+    int counter = 0;
 
-    t = l / (p + q);
+    while (x>0) {
+        if (x >= 100) {
+            x-=100;
+        }else if (x >= 20) {
+            x-=20;
+        }else if (x >= 5) {
+            x-=5;
+        }else if (x >= 1) {
+            x-=1;
+        }
+        counter++;
 
-    cout<< p*t;
+    }
 
+    cout<<counter;
 }
