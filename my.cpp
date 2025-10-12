@@ -3,8 +3,14 @@
 using namespace std;
 
 int main() {
-    int m,n;
-    cin>>m>>n;
+    int x;
+    cin>>x;
 
-    cout<<(m * n) / 2;
+    int counter = 1;
+
+    while (x > 5) {
+        x-=5;
+        counter++;
+    }
+    cout<<counter;
 }
