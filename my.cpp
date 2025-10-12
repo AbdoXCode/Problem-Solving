@@ -3,14 +3,12 @@
 using namespace std;
 
 int main() {
-    int x;
-    cin>>x;
+    double l,p,q,t;
 
-    int counter = 1;
+    cin>>l>>p>>q;
 
-    while (x > 5) {
-        x-=5;
-        counter++;
-    }
-    cout<<counter;
+    t = l / (p + q);
+
+    cout<< p*t;
+
 }
