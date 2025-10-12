@@ -1,15 +1,13 @@
 #include <iostream>
+#include<cmath>
 
 using namespace std;
 
 int main() {
-    int x;
-    cin>>x;
+    double m,n,a;
+    cin>>m>>n>>a;
 
-    if (x >2 && x % 2 == 0) {
-        cout<<"YES";
-    }else {
-        cout<<"NO";
-    }
+    long long flagstones = ceil(n/a) * ceil(m/a);
+    cout<<flagstones;
 
 }
