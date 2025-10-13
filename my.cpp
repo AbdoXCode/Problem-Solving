@@ -4,16 +4,22 @@
 using namespace std;
 
 int main() {
-    int a,b;
-    cin>>a>>b;
+    int arr[5][5];
 
-    while (b--) {
-        if (a % 10 == 0) {
-            a /=10;
-        }else {
-            a--;
+    int row=0,column =0;
+    for (int i =0 ;i< 5;i++) {
+        for (int j = 0 ;j<5;j++) {
+            cin>>arr[i][j];
+        }
+    }
+    for (int i =0 ;i< 5;i++) {
+        for (int j = 0 ;j<5;j++) {
+            if (arr[i][j] ) {
+                row = i;
+                column = j;
+            }
         }
     }
 
-    cout<<a;
+    cout<<( abs(2 - row ))+ (abs(2 - column));
 }
