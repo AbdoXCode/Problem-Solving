@@ -7,15 +7,17 @@ int main() {
     int t;
     cin>>t;
 
-    int rooms = 0;
+    int val =0;
     while (t--) {
-        int p,q;
-        cin>>p>>q;
-        if (p < q && q-p >= 2) {
-            rooms++;
+        string x;
+        cin>>x;
+
+        if (x[1] == '+') {
+            val++;
+        }else {
+            val--;
         }
     }
 
-    cout<<rooms;
-
+    cout<<val<<endl;
 }
