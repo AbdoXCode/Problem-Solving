@@ -5,16 +5,15 @@ using namespace std;
 
 int main() {
     int a,b;
-
     cin>>a>>b;
 
-    int c = 0;
-
-    while (a <= b) {
-        a*=3;
-        b*=2;
-        c++;
+    while (b--) {
+        if (a % 10 == 0) {
+            a /=10;
+        }else {
+            a--;
+        }
     }
 
-    cout<<c;
+    cout<<a;
 }
