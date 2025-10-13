@@ -4,17 +4,18 @@
 using namespace std;
 
 int main() {
-    int x;
-    cin>>x;
+    int t;
+    cin>>t;
 
-    int arr[14] = {4,7,44,47,74,77,444,477,474,447,744,747,774,777};
-
-    for (int i = 0;i <size(arr);i++) {
-        if (x % arr[i] == 0) {
-            cout<<"YES";
-            return 0;
+    int rooms = 0;
+    while (t--) {
+        int p,q;
+        cin>>p>>q;
+        if (p < q && q-p >= 2) {
+            rooms++;
         }
     }
-    cout<<"NO";
+
+    cout<<rooms;
 
 }
