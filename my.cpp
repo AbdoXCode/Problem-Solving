@@ -7,17 +7,16 @@ int main() {
     int t;
     cin>>t;
 
-    int val =0;
+    int total = 0;
     while (t--) {
-        string x;
-        cin>>x;
+        int x,y,z;
+        cin>>x>>y>>z;
 
-        if (x[1] == '+') {
-            val++;
-        }else {
-            val--;
+        if (x+y+z >=2) {
+            total++;
         }
     }
 
-    cout<<val<<endl;
+    cout<<total;
+
 }
