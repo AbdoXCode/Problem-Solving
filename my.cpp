@@ -4,22 +4,19 @@
 using namespace std;
 
 int main() {
-    int arr[5][5];
+    int cubes;
+    cin>>cubes;
 
-    int row=0,column =0;
-    for (int i =0 ;i< 5;i++) {
-        for (int j = 0 ;j<5;j++) {
-            cin>>arr[i][j];
-        }
-    }
-    for (int i =0 ;i< 5;i++) {
-        for (int j = 0 ;j<5;j++) {
-            if (arr[i][j] ) {
-                row = i;
-                column = j;
-            }
-        }
-    }
+    int height = 0;
 
-    cout<<( abs(2 - row ))+ (abs(2 - column));
+    int required_cubes = 0;
+
+    while (required_cubes <= cubes) {
+        height++;
+        cubes-=required_cubes;
+        required_cubes = (height*(height +1)) / 2;
+
+    }
+    cout<<height-1;
+
 }
