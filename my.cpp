@@ -1,28 +1,30 @@
 #include <algorithm>
 #include <iostream>
-#include<set>
+#include<map>
 
 using namespace std;
 
 int main() {
-    set<int>s;
-    int n;
-    cin>>n;
+    map<string,int> m;
 
-    for (int i =0;i<n;i++) {
-        int x;
-        cin>>x;
+    int t;
+    cin>>t;
+    while (t--) {
+        int q;
+        cin>>q;
 
-        s.insert(x);
-    }
+        string name;
+        cin>>name;
 
-    cout<<s.size()<<endl;
+        if (q==1) {
+            int price;
+            cin>>price;
 
-    auto it = s.begin();
+            m[name] += price;
 
-    while (it != s.end()) {
-        cout<<*it<<" ";
-        it++;
+        }else if (q ==2) {
+            cout<<m[name]<<endl;
+        }
     }
 
 }
