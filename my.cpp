@@ -6,24 +6,27 @@ int main() {
     int n;
     cin>>n;
 
-    int matrix[100][100];
+    int arr[10000];
 
-    int maxVal = 1;
-
-    for (int i =0 ;i<n;i++) {
-
-        for (int j =0 ;j<n;j++) {
-            if (i == 0) {
-                matrix[i][j] = 1;
-            }else {
-                matrix[i][j] = matrix[i-1][j] + matrix[i][j-1];
-
-                maxVal = max(matrix[i][j], maxVal);
-            }
-        }
+    for (int i = 0;i <n-1;i++) {
+        int x;
+        cin>>x;
+        arr[i] = x;
     }
 
-    cout<<maxVal;
+    for (int i = 1; i<n - 1;i++) {
+        arr[i] = arr[i] + arr[i-1];
+    }
 
+    int r1,r2;
+    cin>>r1>>r2;
 
+    r1--;
+    r2-=2;
+
+    if (r1 == 0) {
+        cout<<arr[r2];
+    }else {
+        cout<<arr[r2] - arr[r1-1];
+    }
 }
