@@ -1,30 +1,29 @@
-#include <algorithm>
 #include <iostream>
-#include<map>
 
 using namespace std;
 
 int main() {
-    map<string,int> m;
+    int n;
+    cin>>n;
 
-    int t;
-    cin>>t;
-    while (t--) {
-        int q;
-        cin>>q;
+    int matrix[100][100];
 
-        string name;
-        cin>>name;
+    int maxVal = 1;
 
-        if (q==1) {
-            int price;
-            cin>>price;
+    for (int i =0 ;i<n;i++) {
 
-            m[name] += price;
+        for (int j =0 ;j<n;j++) {
+            if (i == 0) {
+                matrix[i][j] = 1;
+            }else {
+                matrix[i][j] = matrix[i-1][j] + matrix[i][j-1];
 
-        }else if (q ==2) {
-            cout<<m[name]<<endl;
+                maxVal = max(matrix[i][j], maxVal);
+            }
         }
     }
+
+    cout<<maxVal;
+
 
 }
