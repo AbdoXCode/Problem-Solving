@@ -1,39 +1,49 @@
+#include <algorithm>
+#include <cmath>
 #include <iostream>
 
 using namespace std;
 
 int main() {
-    int x;
-    cin>>x;
+    int x,y;
+    cin>>x>>y;
 
-    int arr[x];
-    int maxi = 0,mini =1000000;
+    int arr[100005];
 
-    int maxiIndex,miniIndex;
-    for (int i =0;i<x;i++) {
+    for (int i =0 ;i <x;i++) {
         cin>>arr[i];
     }
 
+    sort(arr,arr+x);
 
-    for (int i =0;i<x;i++) {
-        maxi = max(arr[i],maxi);
-        mini = min(arr[i] , mini);
-    }
+    while (y--) {
+        int target;
+        cin>>target;
 
-    for (int i =0;i<x;i++) {
+        int left = 0;
+        int right = x-1;
 
-        if (arr[i] == maxi) {
-            maxiIndex =i;
+        bool flag = false;
+
+        while (left <= right) {
+            int middle = (left + right) /2;
+
+
+            if (arr[middle] == target) {
+                flag = true;
+                break;
+            }else if (target < arr[middle]) {
+                right = middle - 1;
+            }else if (target > arr[middle]) {
+                left = middle + 1;
+            }
         }
-        if (arr[i] == mini) {
-            miniIndex = i;
+
+        if (flag) {
+            cout<<"found"<<endl;
+        }else {
+            cout<<"not found"<<endl;
         }
-    }
-    swap(arr[maxiIndex],arr[miniIndex]);
 
-
-
-    for (int i =0;i<x;i++) {
-        cout<<arr[i]<<" ";
     }
 }
