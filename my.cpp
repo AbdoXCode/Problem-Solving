@@ -5,18 +5,27 @@
 using namespace std;
 
 int main() {
-    int n;
-    cin>>n;
-
     string x;
     cin>>x;
 
-    int count = 0;
-    for (int i =0 ;i<n;i++) {
-        if (x[i] == x[i+1]) {
-            count++;
+    int arr[1000] ={0};
+
+    int i=0;
+    for (char c : x) {
+        if (c != '+') {
+            arr[i] = c -'0';
+            i++;
         }
     }
 
-    cout<<count;
+    sort(arr,arr+x.length() - i+1);
+
+    for (int j =0;j<=x.length()-i;j++) {
+       if (j == x.length() -i) {
+           cout<<arr[j];
+       }else {
+           cout<<arr[j]<<"+";
+       }
+    }
+
 }
