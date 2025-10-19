@@ -5,16 +5,18 @@
 using namespace std;
 
 int main() {
-    long long n;
+    int n;
     cin>>n;
 
-    long long final = 0;
+    string x;
+    cin>>x;
 
-    if (n %2==0) {
-        final = n/2;
-    }else {
-        final = -(n+1)/2;
+    int count = 0;
+    for (int i =0 ;i<n;i++) {
+        if (x[i] == x[i+1]) {
+            count++;
+        }
     }
 
-    cout<<final;
+    cout<<count;
 }
