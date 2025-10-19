@@ -5,8 +5,16 @@
 using namespace std;
 
 int main() {
-    double n;
+    long long n;
     cin>>n;
 
-    cout<<25;
+    long long final = 0;
+
+    if (n %2==0) {
+        final = n/2;
+    }else {
+        final = -(n+1)/2;
+    }
+
+    cout<<final;
 }
