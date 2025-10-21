@@ -5,27 +5,26 @@
 using namespace std;
 
 int main() {
-    string x;
-    cin>>x;
+    int t;
+    cin>>t;
 
-    int arr[1000] ={0};
+    while(t--){
+        int n,d;
+        cin>>n>>d;
 
-    int i=0;
-    for (char c : x) {
-        if (c != '+') {
-            arr[i] = c -'0';
-            i++;
+        int arr[1000];
+
+        for (int i =0;i<n;i++) {
+            cin>>arr[i];
         }
+
+       sort(arr,arr+n);
+
+        if (arr[0] + arr[1] <=d || arr[n-1] <= d) {
+            cout<<"YES"<<endl;
+        }else {
+            cout<<"NO"<<endl;
+        }
+
     }
-
-    sort(arr,arr+x.length() - i+1);
-
-    for (int j =0;j<=x.length()-i;j++) {
-       if (j == x.length() -i) {
-           cout<<arr[j];
-       }else {
-           cout<<arr[j]<<"+";
-       }
-    }
-
 }
