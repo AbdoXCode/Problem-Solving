@@ -3,16 +3,12 @@
 
 using namespace std;
 int main() {
-    int n;
-    cin>>n;
-    
-    int arr[1000];
-    
-    for(int  i = 0 ;i<n;i++){
-        cin>>arr[i];
-    }
-    sort(arr ,arr+n);
-    for(int i =0 ;i<n;i++){
-        cout<<arr[i]<<" ";
+    string x,y;
+    cin>>x>>y;
+    reverse(x.begin(),x.end());
+    if(x == y){
+        cout<<"YES";
+    }else{
+        cout<<"NO";
     }
 }
