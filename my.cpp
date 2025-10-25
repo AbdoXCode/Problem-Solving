@@ -1,35 +1,24 @@
-#include <algorithm>
-#include <cmath>
 #include <iostream>
-#include <vector>
+#include <stack>
 
 using namespace std;
 
 int main() {
-    int n,q;
-    cin>>n>>q;
+    string s;
+    cin>>s;
 
-    vector<int> arr(n);
+    int right = 0;
 
-    for (int i =0;i<n;i++) {
-        int x;
-        cin>>x;
+    stack<char> stack;
 
-        arr.push_back(x);
+    for (char c:s) {
+        if (c =='(') {
+            stack.push(c);
+        }else if (!stack.empty() && c == ')' && stack.top() == '(') {
+            stack.pop();
+            right+=2;
+        };
     }
 
-
-
-    while (q--) {
-        int x;
-        cin>>x;
-        auto it = upper_bound(arr.begin(), arr.end(), x);
-
-        if (it == arr.end()) {
-            cout<<-1<<endl;
-        }else {
-            cout<<*it<<endl;
-        }
-
-    }
+    cout<<right;
 }
