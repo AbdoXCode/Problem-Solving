@@ -1,30 +1,38 @@
 #include <algorithm>
 #include <cmath>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
 int main() {
-    int t;
-    cin>>t;
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-    while(t--){
-        int n,d;
-        cin>>n>>d;
+    long long n,q;
 
-        int arr[1000];
+    vector<long long> vec;
 
-        for (int i =0;i<n;i++) {
-            cin>>arr[i];
-        }
+    cin>>n>>q;
 
-       sort(arr,arr+n);
+    for (int i =0;i<n;i++) {
+        long long x;
+        cin>>x;
+        vec.push_back(x);
+    }
+    for (int i =1;i<n;i++) {
+        vec[i] = vec[i] + vec[i-1];
+    }
+    while(q--) {
+        long long l,r;
+        cin>>l>>r;
 
-        if (arr[0] + arr[1] <=d || arr[n-1] <= d) {
-            cout<<"YES"<<endl;
+        l--,r--;
+
+        if (l==0) {
+            cout<<vec[r]<<endl;
         }else {
-            cout<<"NO"<<endl;
+            cout<<vec[r] - vec[l-1]<<endl;
         }
-
     }
 }
