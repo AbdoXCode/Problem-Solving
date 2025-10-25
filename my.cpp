@@ -1,24 +1,32 @@
 #include <iostream>
+#include <map>
+#include <queue>
 #include <stack>
 
 using namespace std;
 
 int main() {
-    string s;
-    cin>>s;
 
-    int right = 0;
+    queue<int>q;
 
-    stack<char> stack;
+    int t;
+    cin>>t;
 
-    for (char c:s) {
-        if (c =='(') {
-            stack.push(c);
-        }else if (!stack.empty() && c == ')' && stack.top() == '(') {
-            stack.pop();
-            right+=2;
-        };
+    while (t--) {
+        int x,v;
+        cin>>x>>v;
+
+        if (x == 1) {
+            q.push(v);
+        }else {
+            if (q.front() == v) {
+                cout<<"Yes"<<endl;
+            }else {
+                cout<<"No"<<endl;
+            }
+            q.pop();
+        }
+
     }
 
-    cout<<right;
 }
