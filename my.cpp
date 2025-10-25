@@ -6,33 +6,30 @@
 using namespace std;
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-
-    long long n,q;
-
-    vector<long long> vec;
-
+    int n,q;
     cin>>n>>q;
 
+    vector<int> arr(n);
+
     for (int i =0;i<n;i++) {
-        long long x;
+        int x;
         cin>>x;
-        vec.push_back(x);
-    }
-    for (int i =1;i<n;i++) {
-        vec[i] = vec[i] + vec[i-1];
-    }
-    while(q--) {
-        long long l,r;
-        cin>>l>>r;
 
-        l--,r--;
+        arr.push_back(x);
+    }
 
-        if (l==0) {
-            cout<<vec[r]<<endl;
+
+
+    while (q--) {
+        int x;
+        cin>>x;
+        auto it = upper_bound(arr.begin(), arr.end(), x);
+
+        if (it == arr.end()) {
+            cout<<-1<<endl;
         }else {
-            cout<<vec[r] - vec[l-1]<<endl;
+            cout<<*it<<endl;
         }
+
     }
 }
