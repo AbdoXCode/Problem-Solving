@@ -1,37 +1,35 @@
 #include <algorithm>
 #include <iostream>
-#include <map>
 #include <queue>
-#include <set>
-#include <stack>
 
 using namespace std;
+int steps = 0;
+int game23(long long n,long long m) {
+    if (n == m && steps == 0) {
+        return 0;
+    }else if (n == m) {
+        return steps;
+    }else if (m%n != 0) {
+        return -1;
+    }else {
+        if ((m/n) % 2 == 0) {
+            steps++;
+            n*=2;
+            return game23(n , m);
+        }else if ((m/n) % 3 == 0) {
+            steps++;
+            n*=3;
+            return game23(n,m);
+        }
+    }
+}
 
 int main() {
-    int n,teams;
-    cin>>n>>teams;
+    ios::sync_with_stdio(false);cin.tie(nullptr);
 
-    set<int>Nset;
-    vector<int> index;
+    long long n,m;
+    cin>>n>>m;
 
-    for (int i = 0;i <n;i++) {
-        int x;
-        cin>>x;
-        if (Nset.count(x) == 0) {
-            Nset.insert(x);
-            index.push_back(i);
-        }
-    }
-
-    if (Nset.size() >= teams) {
-        cout<<"YES"<<endl;
-        for (int i =0;i<teams;i++) {
-            cout<<index[i] + 1<<" ";
-        }
-    }else {
-        cout<<"NO"<<endl;
-    }
-
-
+    cout<<game23(n,m);
 
 }
