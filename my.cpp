@@ -8,33 +8,23 @@ using namespace std;
 int main() {
     ios::sync_with_stdio(false);cin.tie(nullptr);
 
-    string x;
+    string x,palindrome;
     cin>>x;
 
-    string y;
-
-    char vowels[6] = { 'A', 'O', 'Y', 'E', 'U', 'I'};
-
-
-    for (int i =0;i<x.length();i++) {
-
-        char c = tolower(x[i]);
-
-        bool isVowel = false;
-
-        for (int j =0; j< 6;j++) {
-            if (c == std::tolower(vowels[j])) {
-                isVowel = true;
-                break;
-            }
-        }
-
-        if (!isVowel) {
-            y+=".";
-            y+=tolower(x[i]);
-        }
+    for (int i = x.length() -1; i >= 0;i--) {
+        palindrome+=x[i];
     }
 
-    cout<<y;
+    if (palindrome[0] == '0') {
+        int first = palindrome.find_first_not_of('0');
 
+        palindrome.erase(0,first);
+
+    }
+    cout<<palindrome<<endl;
+    if (x == palindrome) {
+        cout<<"YES"<<endl;
+    }else {
+        cout<<"NO"<<endl;
+    }
 }
