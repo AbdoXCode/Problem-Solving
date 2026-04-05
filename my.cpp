@@ -8,23 +8,16 @@ using namespace std;
 int main() {
     ios::sync_with_stdio(false);cin.tie(nullptr);
 
-    string x,palindrome;
-    cin>>x;
+    long long n,m,k;
+    cin>>n>>m>>k;
 
-    for (int i = x.length() -1; i >= 0;i--) {
-        palindrome+=x[i];
-    }
+    long long x = min({n, m, k});
+    n -= x;
+    m -= x;
+    k -= x;
 
-    if (palindrome[0] == '0') {
-        int first = palindrome.find_first_not_of('0');
+    long long y = min (n /2 , k);
 
-        palindrome.erase(0,first);
+    cout<<x+y;
 
-    }
-    cout<<palindrome<<endl;
-    if (x == palindrome) {
-        cout<<"YES"<<endl;
-    }else {
-        cout<<"NO"<<endl;
-    }
 }
