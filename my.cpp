@@ -1,23 +1,25 @@
-#include <algorithm>
-#include <iostream>
-#include <map>
-#include <queue>
-
+#include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    ios::sync_with_stdio(false);cin.tie(nullptr);
+int main (){
+    ios_base::sync_with_stdio(false); cin.tie(nullptr);
+    int n;
+    cin>>n;
 
-    long long n,m,k;
-    cin>>n>>m>>k;
+    for (int i =0;i<n;i++) {
 
-    long long x = min({n, m, k});
-    n -= x;
-    m -= x;
-    k -= x;
+        for (int j =0 ; j<n;j++) {
 
-    long long y = min (n /2 , k);
-
-    cout<<x+y;
-
+            if (i==j && i != n/2) {
+                cout<<"\\";
+            }else if (i == n /2 && j == n/2) {
+                cout<<"X";
+            }else if (i+j == n-1) {
+                cout<<"/";
+            }else {
+                cout<<"*";
+            }
+        }
+        cout<<endl;
+    }
 }
