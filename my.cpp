@@ -1,32 +1,31 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-long long somefix(long long number,long long n) {
-    if (n %2 != 0) {
-        if (number == 0) {
-            return 3;
-        }else if (number ==1 || number ==2) {
-            return 3-number;
-        }else {
-            return 0;
-        }
-    }else {
-        return number;
+long long divideBy2(long long n) {
+    int count = 0;
+
+    while (n%2 == 0 && n!=0) {
+        n = n/2;
+        count++;
     }
+
+    return count;
 }
 
 int main (){
-
-
     ios_base::sync_with_stdio(false); cin.tie(nullptr);
 
-    long long n;
+    int n;
     cin>>n;
 
-    long long row = n/4;
-    long long col = n % 4;
+    long long x;
+    long long maximum = 0;
 
+    for (int i =0 ;i<n;i++) {
+        cin>>x;
 
-    cout<<row<<" "<<somefix(col,row);
+        maximum = max(maximum,divideBy2(x));
+    }
 
+    cout<<maximum;
 }
