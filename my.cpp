@@ -1,33 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+long long somefix(long long number,long long n) {
+    if (n %2 != 0) {
+        if (number == 0) {
+            return 3;
+        }else if (number ==1 || number ==2) {
+            return 3-number;
+        }else {
+            return 0;
+        }
+    }else {
+        return number;
+    }
+}
+
 int main (){
+
+
     ios_base::sync_with_stdio(false); cin.tie(nullptr);
 
-    int n,k;
-    cin>>n>>k;
+    long long n;
+    cin>>n;
 
-    int x;
+    long long row = n/4;
+    long long col = n % 4;
 
-    int cnt = 0;
-    int mn = INT_MAX;
 
-    for (int i =0 ;i<n;i++) {
-        cin>>x;
-
-        mn = min(mn,x);
-
-        cnt++;
-
-        if (cnt == k) {
-            cout<< mn<<" ";
-            mn = INT_MAX;
-            cnt=0;
-        }
-    }
-
-    if (cnt > 0) {
-        cout<<mn;
-    }
+    cout<<row<<" "<<somefix(col,row);
 
 }
