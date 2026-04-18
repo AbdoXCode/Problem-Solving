@@ -5,16 +5,17 @@ using namespace std;
 int main (){
     ios_base::sync_with_stdio(false); cin.tie(nullptr);
 
-    string s,final;
-    getline(cin,s);
+    int n;
+    cin>>n;
 
-    for (char c: s) {
-        if (c == '\\') {
-            break;
+    while (n--) {
+        string x;
+        cin>>x;
+
+        if (x.find("010") != string::npos|| x.find("101") != string::npos ) {
+            cout<<"Good"<<endl;
+        }else {
+            cout<<"Bad"<<endl;
         }
-
-        final +=c;
     }
-    cout<<final;
-
 }
