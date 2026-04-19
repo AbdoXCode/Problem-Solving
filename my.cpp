@@ -2,20 +2,22 @@
 using namespace std;
 
 
-int main (){
+int main () {
     ios_base::sync_with_stdio(false); cin.tie(nullptr);
 
-    int n;
-    cin>>n;
+    string x;
+    cin>>x;
 
-    while (n--) {
-        string x;
-        cin>>x;
+    int arr[256] = {0};
 
-        if (x.find("010") != string::npos|| x.find("101") != string::npos ) {
-            cout<<"Good"<<endl;
-        }else {
-            cout<<"Bad"<<endl;
+    for (char c: x) {
+        arr[c] ++;
+    }
+
+    for (int i =0 ;i<256;i++) {
+        if (arr[i] != 0) {
+            cout<<char(i)<<" : "<<arr[i]<<endl;
         }
     }
+
 }
