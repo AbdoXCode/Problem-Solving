@@ -1,5 +1,5 @@
-#include <bits/stdc++.h>
-using namespace std;
+    #include <bits/stdc++.h>
+    using namespace std;
 
 
 int main () {
@@ -8,16 +8,14 @@ int main () {
     string x;
     cin>>x;
 
-    int arr[256] = {0};
-
-    for (char c: x) {
-        arr[c] ++;
+    string test = "";
+    for (int i = x.length() -1;i>=0;i--) {
+        test +=x[i];
     }
 
-    for (int i =0 ;i<256;i++) {
-        if (arr[i] != 0) {
-            cout<<char(i)<<" : "<<arr[i]<<endl;
-        }
+    if (x == test) {
+        cout<<"YES";
+    }else {
+        cout<<"NO";
     }
-
 }
