@@ -5,17 +5,22 @@
 int main () {
     ios_base::sync_with_stdio(false); cin.tie(nullptr);
 
-    string x;
-    cin>>x;
+    int n;
+    cin>>n;
 
-    string test = "";
-    for (int i = x.length() -1;i>=0;i--) {
-        test +=x[i];
+    int arr[256] ={0};
+
+    for (int i =0;i<n;i++) {
+        char ch;
+        cin>>ch;
+
+        arr[ch]++;
     }
 
-    if (x == test) {
-        cout<<"YES";
-    }else {
-        cout<<"NO";
+    for (int i =0;i<256;i++) {
+        while (arr[i] > 0) {
+            cout<<char(i);
+            arr[i] --;
+        }
     }
 }
