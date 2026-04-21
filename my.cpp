@@ -5,26 +5,13 @@
 int main () {
     ios_base::sync_with_stdio(false); cin.tie(nullptr);
 
-    string x;
-    cin>>x;
+    int odd,even;
+    cin>>odd>>even;
 
-    string urlHead;
-    for (int i =0;i<x.length();i++) {
-        if (x[i] =='?') {
-            urlHead = x.substr(i+1,x.length());
-            break;
-        }
+    if (odd == even +1 || even == odd +1 || (even == odd && even != 0)) {
+        cout<<"YES"<<endl;
+    }else if ((odd > even || even > odd) || (even == odd && even ==0)) {
+        cout<<"NO"<<endl;
     }
 
-    string result;
-    for (char &ch : urlHead) {
-        if (ch == '=') {
-            result += ": ";
-        }else if (ch == '&') {
-            result += "\n";
-        }else {
-            result += ch;
-        }
-    }
-    cout<<result;
 }
