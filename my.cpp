@@ -5,13 +5,17 @@
 int main () {
     ios_base::sync_with_stdio(false); cin.tie(nullptr);
 
-    int odd,even;
-    cin>>odd>>even;
+    string s;
+    getline(cin,s);
 
-    if (odd == even +1 || even == odd +1 || (even == odd && even != 0)) {
-        cout<<"YES"<<endl;
-    }else if ((odd > even || even > odd) || (even == odd && even ==0)) {
-        cout<<"NO"<<endl;
+    int count = 0;
+
+    for (int i = 0 ;i<s.length();i++) {
+        if (isalpha(s[i]) && !isalpha(s[i-1])) {
+            count++;
+        }
     }
+
+    cout<<count;
 
 }
