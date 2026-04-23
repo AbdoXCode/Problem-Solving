@@ -1,21 +1,26 @@
-    #include <bits/stdc++.h>
-    using namespace std;
+#include <bits/stdc++.h>
+using namespace std;
 
 
 int main () {
     ios_base::sync_with_stdio(false); cin.tie(nullptr);
 
     string s;
+
     getline(cin,s);
 
-    int count = 0;
+    string word = "";
 
-    for (int i = 0 ;i<s.length();i++) {
-        if (isalpha(s[i]) && !isalpha(s[i-1])) {
-            count++;
+    for (int i = 0;i<s.length();i++) {
+        if (s[i] != ' ') {
+            word +=s[i];
+        }else {
+            reverse(word.begin(),word.end());
+            cout<<word<<" ";
+            word ="";
         }
     }
-
-    cout<<count;
+    reverse(word.begin(),word.end());
+    cout<<word;
 
 }
