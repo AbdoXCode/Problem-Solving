@@ -5,22 +5,8 @@ using namespace std;
 int main () {
     ios_base::sync_with_stdio(false); cin.tie(nullptr);
 
-    string s;
+    int x,y,z;
+    cin>>x>>y>>z;
 
-    getline(cin,s);
-
-    string word = "";
-
-    for (int i = 0;i<s.length();i++) {
-        if (s[i] != ' ') {
-            word +=s[i];
-        }else {
-            reverse(word.begin(),word.end());
-            cout<<word<<" ";
-            word ="";
-        }
-    }
-    reverse(word.begin(),word.end());
-    cout<<word;
-
+    cout<<max(max(x,y),z) - min(min(x,y),z);
 }
