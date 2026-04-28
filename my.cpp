@@ -1,18 +1,33 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-long long equation(int x, int n) {
-    long long sum = 0;
+int findMinMax(int arr[] ,int size) {
 
-    for (int i =0;i<=n;i+=2) {
-        sum += pow(x,i);
+    long long min = 10000000;
+    long long max = -10000000;
+
+    for (int i =0;i<size;i++) {
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+        if (arr[i] > max) {
+            max = arr[i];
+        }
     }
-    return sum -1;
+
+    cout<<min<<" "<<max;
+    return 0;
 }
 int main() {
-    int x,n;
-    cin>>x>>n;
+    int n;
+    cin>>n;
 
+    int arr[n];
 
-    cout<<equation(x,n);
+    for (int i =0;i<n;i++) {
+        cin>>arr[i];
+    }
+
+    findMinMax(arr,n);
+
 }
