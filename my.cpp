@@ -1,14 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int add(int x,int y) {
-    return x+y;
+auto print(int x) {
+    for (int i = 1 ;i<=x;i++) {
+        if (x==i) {
+            cout<<i;
+        }else {
+            cout<<i<<" ";
+        }
+    }
 }
 
 int main () {
     ios_base::sync_with_stdio(false); cin.tie(nullptr);
-    int x,y;
-    cin>>x>>y;
+    int x;
+    cin>>x;
 
-    cout<<add(x,y);
+    print(x);
 }
