@@ -1,17 +1,18 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-auto swaps(int x,int y) {
-    int c = x;
-    x = y;
-    y = c;
+long long equation(int x, int n) {
+    long long sum = 0;
 
-    cout<<x<<" "<<y;
+    for (int i =0;i<=n;i+=2) {
+        sum += pow(x,i);
+    }
+    return sum -1;
 }
 int main() {
-    int x,y;
-    cin>>x>>y;
+    int x,n;
+    cin>>x>>n;
 
 
-    swaps(x,y);
+    cout<<equation(x,n);
 }
