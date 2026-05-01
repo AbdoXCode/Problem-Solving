@@ -1,23 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-float mean(int n,double arr[]) {
-    double sum =0;
-    for (int i=0;i<n;i++) {
-        sum += arr[i];
+void swapArray(int n,int arr1[],int arr2[]) {
+    for (int i =0;i<n;i++) {
+        cout<<arr2[i]<<" ";
     }
-    return sum/n;
+    for (int i = 0;i<n;i++) {
+        cout<<arr1[i]<<" ";
+    }
 }
 
 int main() {
     int n;
     cin>>n;
 
-    double arr[n];
+    int arr1[n];
+    int arr2[n];
 
     for (int i =0;i<n;i++) {
-        cin>>arr[i];
+        cin>>arr1[i];
+    }
+    for (int i =0;i<n;i++) {
+        cin>>arr2[i];
     }
 
-    cout<<fixed<<mean(n,arr);
+    swapArray(n,arr1,arr2);
 }
