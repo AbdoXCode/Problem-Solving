@@ -1,24 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int printMultipleChars(int x,char letter) {
-    for (int i=0;i<x;i++) {
-        cout<<letter<<" ";
+float mean(int n,double arr[]) {
+    double sum =0;
+    for (int i=0;i<n;i++) {
+        sum += arr[i];
     }
-    return 0;
+    return sum/n;
 }
 
 int main() {
     int n;
     cin>>n;
 
-    while (n--) {
-        int x;
-        char letter;
-        cin>>x>>letter;
+    double arr[n];
 
-        printMultipleChars(x,letter);
-        cout<<"\n";
-
+    for (int i =0;i<n;i++) {
+        cin>>arr[i];
     }
+
+    cout<<fixed<<mean(n,arr);
 }
