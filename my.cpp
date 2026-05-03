@@ -1,15 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void printRecursion(int n) {
+void printToN(int n) {
     if (n == 0) return;
-    cout<<"I love Recursion"<<endl;
-    printRecursion(n-1);
+    printToN(n-1);
+    cout<<n<<endl;
 }
 
 int main() {
     int n;
     cin>>n;
 
-    printRecursion(n);
+    printToN(n);
 }
