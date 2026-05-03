@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void printDigits(long long x) {
-    if (x == 0) return;
-    printDigits(x/10);
-    cout<<x%10<<" ";
+string Binary(long long x) {
+    if (x == 0) return"";
+
+    return Binary(x / 2) + char('0' + x % 2);
 }
 
 int main() {
@@ -16,9 +16,9 @@ int main() {
         cin>>x;
 
         if (x ==0) {
-            cout<<0;
+            cout<<0<<endl;
+        }else {
+            cout<<Binary(x)<<endl;
         }
-        printDigits(x);
-        cout<<endl;
     }
 }
