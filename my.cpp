@@ -1,21 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int countVowels(int index,string s) {
-    if (index == s.length()) return 0;
+long long Factorial(int n) {
+    if (n == 0 || n == 1) return 1;
 
-    int isVowel = (s[index] == 'a' || s[index] == 'e' || s[index] == 'i' || s[index] == 'o' || s[index] == 'u');
+    if (n==2) return 2;
 
-    return isVowel + countVowels(index+1, s);
+    return n * Factorial(n-1);
 }
 
 int main() {
-    string s;
-    getline(cin,s);
+    int n;
+    cin>>n;
 
-    for (char &c:s) {
-        c = tolower(c);
-    }
-
-    cout<<countVowels(0,s);
+    cout<<Factorial(n);
 }
