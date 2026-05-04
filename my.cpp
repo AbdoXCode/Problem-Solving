@@ -1,17 +1,37 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-long long Factorial(int n) {
-    if (n == 0 || n == 1) return 1;
+void swapRow(vector<vector<int>> &mat,int x,int y) {
+    swap(mat[x],mat[y]);
+}
+void swapColumn(vector<vector<int>> &mat,int x,int y) {
+    int n = mat.size();
 
-    if (n==2) return 2;
-
-    return n * Factorial(n-1);
+    for (int i =0;i<n;i++) {
+        swap(mat[i][x],mat[i][y]);
+    }
 }
 
 int main() {
-    int n;
-    cin>>n;
+    int n,x,y;
+    cin>>n>>x>>y;
 
-    cout<<Factorial(n);
+    x--,y--;
+    vector<vector<int>> mat(n , vector<int>(n));
+
+    for (int i =0;i<n;i++) {
+        for (int j =0;j<n;j++) {
+            cin>>mat[i][j];
+        }
+    }
+
+    swapRow(mat,x,y);
+    swapColumn(mat,x,y);
+
+    for (int i =0;i<n;i++) {
+        for (int j =0;j<n;j++) {
+            cout<<mat[i][j]<<" ";
+        }
+        cout<<endl;
+    }
 }
