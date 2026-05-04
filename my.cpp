@@ -1,24 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-string Binary(long long x) {
-    if (x == 0) return"";
+void printEvenIndices(int n,int index,long long arr[]) {
+    if (index >= n) return;
 
-    return Binary(x / 2) + char('0' + x % 2);
+    printEvenIndices(n,index +2,arr);
+    cout<<arr[index]<<" ";
 }
 
 int main() {
     int n;
     cin>>n;
 
-    while (n--) {
-        long long x;
-        cin>>x;
+    long long arr[1001] ={};
 
-        if (x ==0) {
-            cout<<0<<endl;
-        }else {
-            cout<<Binary(x)<<endl;
-        }
+    for (int i = 0;i<n;i++) {
+        cin>>arr[i];
     }
+
+    printEvenIndices(n,0,arr);
 }
