@@ -1,18 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int total;
+int countVowels(int index,string s) {
+    if (index == s.length()) return 0;
 
-void printPyramid(int n) {
-    if (n == 0) return;
-    cout<<string(total - n ,' ');
-    cout<<string(2 * n - 1,'*');
-    cout<<'\n';
-    printPyramid(n-1);
+    int isVowel = (s[index] == 'a' || s[index] == 'e' || s[index] == 'i' || s[index] == 'o' || s[index] == 'u');
+
+    return isVowel + countVowels(index+1, s);
 }
 
 int main() {
-    cin>>total;
+    string s;
+    getline(cin,s);
 
-    printPyramid(total);
+    for (char &c:s) {
+        c = tolower(c);
+    }
+
+    cout<<countVowels(0,s);
 }
