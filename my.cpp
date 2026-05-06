@@ -2,22 +2,19 @@
 using namespace std;
 
 int main() {
-    long long n;
-    cin>>n;
+    int a,b;
+    cin>>a>>b;
 
-    bool prime = true;
+    long long sum =0;
+    long long sumEven = 0;
+    long long sumOdd =0;
 
-    if (n ==0 || n==1) {
-        cout<<"NO";
-        return 0;
+    if (a>b) swap(a,b);
+
+    for (int i =a;i<=b;i++) {
+        sum += i;
+        if (i % 2==0) sumEven +=i;
+        else sumOdd +=i;
     }
-    for (long long i =2;i*i<=n;i++) {
-        if (n%i == 0) {
-            prime = false;
-            break;
-        }
-    }
-
-    if (prime)cout<<"YES";
-    else cout<<"NO";
+    cout<<sum<<endl<<sumEven<<endl<<sumOdd;
 }
