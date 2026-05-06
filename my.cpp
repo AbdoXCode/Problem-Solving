@@ -1,15 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-long long log2n(long long n) {
-    if (n /2 ==0) return 0;
+long long maxArr(int index ,int size, long long arr[]) {
+    if (index == size -1) return arr[index];
 
-    if (n%2==0) return 1 + log2n(n/2);
+    return max(arr[index] , maxArr(index +1 , size, arr));
 }
 
 int main() {
-    long long n;
+    int n;
     cin>>n;
 
-    cout<<log2n(n);
+    long long arr[n];
+
+    for (int i =0;i<n;i++) {
+        cin>>arr[i];
+    }
+    cout<<maxArr(0,n,arr);
 }
