@@ -1,10 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-long long maxArr(int index ,int size, long long arr[]) {
-    if (index == size -1) return arr[index];
+double average(int index ,int size, long long arr[]) {
+    if (index == size ) return 0;
 
-    return max(arr[index] , maxArr(index +1 , size, arr));
+    return arr[index] + average(index+1 , size , arr);
 }
 
 int main() {
@@ -16,5 +16,6 @@ int main() {
     for (int i =0;i<n;i++) {
         cin>>arr[i];
     }
-    cout<<maxArr(0,n,arr);
+
+    cout<<fixed<<average(0,n,arr) / n;
 }
