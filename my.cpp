@@ -5,24 +5,19 @@ int main() {
     long long n;
     cin>>n;
 
-    bool power = true;
+    bool prime = true;
 
-    if (n==0) {
+    if (n ==0 || n==1) {
         cout<<"NO";
         return 0;
     }
-    if (n==1) {
-        cout<<"YES";
-        return 0;
-    }
-    for (long long i = 0;i<n;i++) {
-        if (n % 2 != 0) {
-            power = false;
+    for (long long i =2;i*i<=n;i++) {
+        if (n%i == 0) {
+            prime = false;
             break;
         }
-        n/=2;
     }
 
-    if (power) cout<<"YES";
+    if (prime)cout<<"YES";
     else cout<<"NO";
 }
