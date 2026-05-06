@@ -1,16 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-long long fib(int n) {
-    if (n == 1) return 0;
-    if (n == 2) return 1;
+long long log2n(long long n) {
+    if (n /2 ==0) return 0;
 
-    return fib(n - 1) + fib(n-2);
+    if (n%2==0) return 1 + log2n(n/2);
 }
 
 int main() {
-    int n;
+    long long n;
     cin>>n;
 
-    cout<<fib(n);
+    cout<<log2n(n);
 }
