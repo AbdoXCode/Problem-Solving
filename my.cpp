@@ -1,21 +1,28 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-double average(int index ,int size, long long arr[]) {
-    if (index == size ) return 0;
-
-    return arr[index] + average(index+1 , size , arr);
-}
-
 int main() {
-    int n;
+    long long n;
     cin>>n;
 
-    long long arr[n];
+    bool power = true;
 
-    for (int i =0;i<n;i++) {
-        cin>>arr[i];
+    if (n==0) {
+        cout<<"NO";
+        return 0;
+    }
+    if (n==1) {
+        cout<<"YES";
+        return 0;
+    }
+    for (long long i = 0;i<n;i++) {
+        if (n % 2 != 0) {
+            power = false;
+            break;
+        }
+        n/=2;
     }
 
-    cout<<fixed<<average(0,n,arr) / n;
+    if (power) cout<<"YES";
+    else cout<<"NO";
 }
