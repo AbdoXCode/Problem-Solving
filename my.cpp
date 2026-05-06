@@ -1,19 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-long long Summation(int n, int idx,int arr[]) {
-    if (idx == n) return 0;
-    return arr[idx] + Summation(n,idx +1,arr);
+long long fib(int n) {
+    if (n == 1) return 0;
+    if (n == 2) return 1;
+
+    return fib(n - 1) + fib(n-2);
 }
 
 int main() {
     int n;
     cin>>n;
 
-    int arr[1001];
-
-    for (int i =0;i<n;i++) {
-        cin>>arr[i];
-    }
-    cout<<Summation(n,0,arr);
+    cout<<fib(n);
 }
