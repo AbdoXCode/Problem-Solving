@@ -2,19 +2,16 @@
 using namespace std;
 
 int main() {
-    int a,b;
-    cin>>a>>b;
+    long long a,b,q;
+    cin>>a>>b>>q;
 
-    long long sum =0;
-    long long sumEven = 0;
-    long long sumOdd =0;
+    long long res = q % 3;
 
-    if (a>b) swap(a,b);
-
-    for (int i =a;i<=b;i++) {
-        sum += i;
-        if (i % 2==0) sumEven +=i;
-        else sumOdd +=i;
+    if (res == 1) {
+        cout<<a;
+    }else if (res == 2) {
+        cout<<b;
+    }else {
+        cout<<(a^b);
     }
-    cout<<sum<<endl<<sumEven<<endl<<sumOdd;
 }
