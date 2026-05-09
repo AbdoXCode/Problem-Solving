@@ -2,13 +2,20 @@
 using namespace std;
 
 int main() {
-    double a,b,c;
-    cin>>a>>b>>c;
+    string n;
+    long long x;
+    cin>>n>>x;
 
-    double s = (a + b + c) / 2;
-    if (a + b > c && a + c > b && c + b > a) {
-        cout<<"Valid"<<endl<<sqrt(s*(s-a)*(s-b)*(s-c));
-    }else {
-        cout<<"Invalid";
+    long long rem = 0;
+
+    for (char c : n) {
+        rem = (rem * 10 + (c - '0')) % x;
     }
+
+    if (rem == 0) {
+        cout<<"YES";
+    }else {
+        cout<<"NO";
+    }
+
 }
