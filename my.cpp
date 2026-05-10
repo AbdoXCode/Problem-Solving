@@ -1,21 +1,31 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    string n;
-    long long x;
-    cin>>n>>x;
+string reachValue(long long x) {
+    if (x == 1) return "YES";
 
-    long long rem = 0;
-
-    for (char c : n) {
-        rem = (rem * 10 + (c - '0')) % x;
+    if (x % 20 == 0) {
+        if (reachValue(x / 20) == "YES") {
+            return "YES";
+        }
     }
 
-    if (rem == 0) {
-        cout<<"YES";
-    }else {
-        cout<<"NO";
+    if (x % 10 == 0) {
+        if (reachValue(x / 10) == "YES") {
+            return "YES";
+        }
+    }
+    return "NO";
+}
+int main() {
+    int t;
+    cin>>t;
+
+
+    for (int i =0;i<t;i++) {
+        long long x;
+        cin>>x;
+        cout<<reachValue(x)<<endl;
     }
 
 }
