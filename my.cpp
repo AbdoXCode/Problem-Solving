@@ -2,16 +2,14 @@
 using namespace std;
 
 int main() {
-    long long n,sum = 0;
+    long long n;
+    double sum = 0;
     cin>>n;
 
-    for (int i =1 ;i<=sqrt(n);i++) {
-        if (n%i == 0) {
-            sum += i;
-            if (i != sqrt(n)) {
-                sum+= n/i;
-            }
-        }
+    for (int i =1;i<=n;i++) {
+        sum+=log10(i);
     }
-    cout<<sum;
+
+    int digits = sum + 1;
+    cout<<"Number of digits of "<<n<<"! is "<<digits;
 }
