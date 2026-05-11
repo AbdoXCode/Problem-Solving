@@ -1,31 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-string reachValue(long long x) {
-    if (x == 1) return "YES";
+int numWays(int x,int y) {
+    if (x == y) return 1;
+    if (x>y)return 0;
 
-    if (x % 20 == 0) {
-        if (reachValue(x / 20) == "YES") {
-            return "YES";
-        }
-    }
+    return numWays(x+1,y)+numWays(x+2,y)+numWays(x+3,y);
 
-    if (x % 10 == 0) {
-        if (reachValue(x / 10) == "YES") {
-            return "YES";
-        }
-    }
-    return "NO";
 }
 int main() {
-    int t;
-    cin>>t;
+    int x,y;
+    cin>>x>>y;
 
-
-    for (int i =0;i<t;i++) {
-        long long x;
-        cin>>x;
-        cout<<reachValue(x)<<endl;
-    }
+    cout<<numWays(x,y);
 
 }
