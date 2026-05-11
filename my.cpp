@@ -1,17 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int numWays(int x,int y) {
-    if (x == y) return 1;
-    if (x>y)return 0;
+long long nCr(int n,int r) {
+    if (r == 0 || n==r) return 1;
 
-    return numWays(x+1,y)+numWays(x+2,y)+numWays(x+3,y);
+    return nCr(n-1,r-1) + nCr(n-1,r);
+}
+long long nPr(int n,int r) {
+    if (r == 1) return n;
+    if (r == 0) return 1;
 
+    return n* nPr((n-1) , r-1);
 }
 int main() {
     int x,y;
     cin>>x>>y;
 
-    cout<<numWays(x,y);
+    cout<<nCr(x,y)<<" "<<nPr(x,y);
 
 }
