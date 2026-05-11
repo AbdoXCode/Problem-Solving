@@ -2,14 +2,9 @@
 using namespace std;
 
 int main() {
-    long long n;
-    double sum = 0;
-    cin>>n;
+    double x1,x2,y1,y2;
 
-    for (int i =1;i<=n;i++) {
-        sum+=log10(i);
-    }
-
-    int digits = sum + 1;
-    cout<<"Number of digits of "<<n<<"! is "<<digits;
+    cin>>x1>>y1>>x2>>y2;
+    double ans = sqrt(pow((x2-x1),2) + pow((y2-y1),2));
+    cout<<fixed<<ans;
 }
