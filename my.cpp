@@ -2,9 +2,12 @@
 using namespace std;
 
 int main() {
-    double x1,x2,y1,y2;
+    long long k,n,w,total_cost = 0;
+    cin>>k>>n>>w;
 
-    cin>>x1>>y1>>x2>>y2;
-    double ans = sqrt(pow((x2-x1),2) + pow((y2-y1),2));
-    cout<<fixed<<ans;
+    for (int i =1;i<=w;i++) {
+        total_cost+=(i*k);
+    }
+
+    total_cost-n > 0 ? cout<<total_cost-n : cout<<0;
 }
