@@ -2,12 +2,13 @@
 using namespace std;
 
 int main() {
-    long long k,n,w,total_cost = 0;
-    cin>>k>>n>>w;
+    long long n,sumNum = 0;
+    cin>>n;
 
-    for (int i =1;i<=w;i++) {
-        total_cost+=(i*k);
+    for (long long i=0;i<n;i++) {
+        sumNum++;
+        n-=sumNum;
     }
 
-    total_cost-n > 0 ? cout<<total_cost-n : cout<<0;
+    cout<<sumNum;
 }
