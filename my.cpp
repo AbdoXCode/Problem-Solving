@@ -2,13 +2,12 @@
 using namespace std;
 
 int main() {
-    long long n,sumNum = 0;
-    cin>>n;
+    int x1,y1,x2,y2,x3,y3;
+    cin>>x1>>y1>>x2>>y2>>x3>>y3;
 
-    for (long long i=0;i<n;i++) {
-        sumNum++;
-        n-=sumNum;
+    if ((y2-y1) * (x3-x2) == (x2 -x1) * (y3-y2)) {
+        cout<<"YES";
+    }else {
+        cout<<"NO";
     }
-
-    cout<<sumNum;
 }
