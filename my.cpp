@@ -2,12 +2,23 @@
 using namespace std;
 
 int main() {
-    int x1,y1,x2,y2,x3,y3;
-    cin>>x1>>y1>>x2>>y2>>x3>>y3;
+    int x;
 
-    if ((y2-y1) * (x3-x2) == (x2 -x1) * (y3-y2)) {
-        cout<<"YES";
-    }else {
-        cout<<"NO";
+    cin>>x;
+
+    for (int i =1 ;i<=x;i++) {
+        if (i%2 == 0) {
+            if (i <= x-1) {
+                cout<<"I love that ";
+            }else {
+                cout<<"I love it ";
+            }
+        }else {
+            if (i <= x-1) {
+                cout<<"I hate that ";
+            }else {
+                cout<<"I hate it ";
+            }
+        }
     }
 }
