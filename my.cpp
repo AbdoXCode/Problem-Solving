@@ -2,17 +2,31 @@
 using namespace std;
 
 int main() {
-    string x,y,final;
-    cin>>x>>y;
+    int p;
+    cin>>p;
 
-    for (int i =0;i<x.length();i++) {
-        if (x[i] == '1' && y[i]=='0') {
-            final += '1';
-        }else if (x[i] == '0' && y[i]=='1') {
-            final += '1';
-        }else {
-            final+='0';
-        }
+    set<int> levels;
+    int n;
+    cin>>n;
+    for (int i =0;i<n;i++) {
+        int x;
+        cin>>x;
+        levels.insert(x);
     }
-    cout<<final;
+
+    int q;
+    cin>>q;
+
+    for (int i =0;i<q;i++) {
+        int y;
+        cin>>y;
+        levels.insert(y);
+    }
+
+    if (levels.size() >= p) {
+        cout<<"I become the guy.";
+    }else {
+        cout<<"Oh, my keyboard!";
+    }
+
 }
