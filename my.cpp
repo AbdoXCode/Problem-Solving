@@ -3,12 +3,19 @@
 using namespace std;
 
 int main() {
-    long long l,r,m,sum = 1;
+    int t;
+    cin>>t;
 
-    cin>>l>>r>>m;
+    while (t--) {
+        long long n,a,b;
+        cin>>n>>a>>b;
 
-    for (long long i = l;i<=r;i++) {
-        sum = (sum * i) % m;
+        long long groups = n / 3;
+        long long rem = n % 3;
+
+        long long ans = (groups * min(3*a,b) + min(rem * a , b));
+
+        cout<<ans<<endl;
+
     }
-    cout<<sum;
 }
