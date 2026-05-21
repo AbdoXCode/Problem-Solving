@@ -5,15 +5,34 @@
 using namespace std;
 
 int main() {
-    int x1,x2,x3,x4,y1,y2,y3,y4;
-    cin>>x1>>y1>>x2>>y2>>x3>>y3>>x4>>y4;
+    long long x,newBalance1=0;
+    string newBalance2;
 
-    long long slope1 = (x2-x1) * (y4-y3);
-    long long slope2 = (y2-y1) * (x4-x3);
+    cin>>x;
 
-    if (slope1 == slope2) {
-        cout<<"YES";
+    if (x > 0) {
+        cout<<x<<endl;
+        return 0;
     }else {
-        cout<<"NO";
+        for (int i =0; i<to_string(abs(x)).length();i++) {
+            char lastDigit = char(abs(x % 10) + '0');
+            if ( i == to_string(abs(x)).length() -1) {
+                newBalance1 = (newBalance1 + x) / 10;
+                newBalance2 += lastDigit;
+            }
+
+            if (i <= to_string(abs(x)).length() -2) {
+                newBalance2 += to_string(x)[i];
+            }
+        }
+    }
+
+    if (stoi(newBalance2) == 0) {
+        newBalance2 = "0";
+    }
+    if (newBalance1 > stoi(newBalance2)) {
+        cout<<newBalance1;
+    }else {
+        cout<<newBalance2;
     }
 }
