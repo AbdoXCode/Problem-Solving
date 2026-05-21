@@ -1,38 +1,35 @@
-#include <iostream>
-#include <thread>
-#include <chrono>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
-    long long x,newBalance1=0;
-    string newBalance2;
+    int t;
+    cin>>t;
 
-    cin>>x;
+    while (t--) {
+        int n;
+        cin>>n;
 
-    if (x > 0) {
-        cout<<x<<endl;
-        return 0;
-    }else {
-        for (int i =0; i<to_string(abs(x)).length();i++) {
-            char lastDigit = char(abs(x % 10) + '0');
-            if ( i == to_string(abs(x)).length() -1) {
-                newBalance1 = (newBalance1 + x) / 10;
-                newBalance2 += lastDigit;
-            }
+        int arr[n];
 
-            if (i <= to_string(abs(x)).length() -2) {
-                newBalance2 += to_string(x)[i];
+        for (int i =0;i<n;i++) {
+            cin>>arr[i];
+        }
+
+        int normal;
+
+        if (arr[0] == arr[1])
+            normal = arr[0];
+        else if (arr[0] == arr[2])
+            normal = arr[0];
+        else
+            normal = arr[1];
+
+        for (int i = 0; i < n; i++) {
+            if (normal != arr[i]) {
+                cout<<i + 1<<endl;
+                break;
             }
         }
-    }
 
-    if (stoi(newBalance2) == 0) {
-        newBalance2 = "0";
-    }
-    if (newBalance1 > stoi(newBalance2)) {
-        cout<<newBalance1;
-    }else {
-        cout<<newBalance2;
     }
 }
