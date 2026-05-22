@@ -2,17 +2,28 @@
 using namespace std;
 
 int main() {
-    int n,k,maxproblems = 0,totalPTime = 0;
-    cin>>n>>k;
+    int t;
+    cin>>t;
 
-    for (int i =1;i<=n;i++) {
-        if (k + totalPTime <= 240 - 5*i) {
-            maxproblems++;
-            totalPTime += 5*i;
+    while (t--) {
+        int x;
+        cin>>x;
+
+        vector<int> vec;
+        for (int i =0;i<x;i++) {
+            string xx;
+            cin>>xx;
+
+            for (int j =0;j<4;j++) {
+                if (xx[j] == '#') {
+                    vec.push_back(j+1);
+                }
+            }
         }
+
+        for (int i = vec.size() - 1;i>=0;i--) {
+            cout<<vec[i]<<" ";
+        }
+        cout<<endl;
     }
-
-
-    cout<<maxproblems;
-
 }
