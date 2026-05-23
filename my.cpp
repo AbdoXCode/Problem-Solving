@@ -2,28 +2,12 @@
 using namespace std;
 
 int main() {
-    int t;
-    cin>>t;
+    int s1,s2,s3,s4;
+    cin>>s1>>s2>>s3>>s4;
 
-    while (t--) {
-        int x;
-        cin>>x;
+    set<int> colors = {s1,s2,s3,s4};
 
-        vector<int> vec;
-        for (int i =0;i<x;i++) {
-            string xx;
-            cin>>xx;
 
-            for (int j =0;j<4;j++) {
-                if (xx[j] == '#') {
-                    vec.push_back(j+1);
-                }
-            }
-        }
 
-        for (int i = vec.size() - 1;i>=0;i--) {
-            cout<<vec[i]<<" ";
-        }
-        cout<<endl;
-    }
+    cout<<4 - colors.size();
 }
