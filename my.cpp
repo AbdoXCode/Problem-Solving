@@ -2,12 +2,13 @@
 using namespace std;
 
 int main() {
-    int s1,s2,s3,s4;
-    cin>>s1>>s2>>s3>>s4;
+    int t;
+    cin>>t;
 
-    set<int> colors = {s1,s2,s3,s4};
+    while (t--) {
+        int x;
+        cin>>x;
 
-
-
-    cout<<4 - colors.size();
+        cout<<x%10  + x/ 10<<endl;
+    }
 }
