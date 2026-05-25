@@ -1,20 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int sequence(int x) {
-    if (x == 1) return 1;
+long long suffix_sum(long long arr[],long long y,long long x) {
+    if (y == 0) return 0;
 
-    if (x % 2 == 0) {
-        return 1 + sequence(x/2);
-    }
-    if (x % 2 != 0) {
-        return 1 + sequence(3 * x + 1);
-    }
+    return arr[x-y] + suffix_sum(arr ,y-1,x);
 }
 
 int main() {
-    int x;
-    cin>>x;
+    long long x,y;
+    cin>>x>>y;
 
-    cout<<sequence(x);
+    long long arr[x];
+
+    for (long long i=0;i<x;i++) {
+        cin>>arr[i];
+    }
+
+    cout<<suffix_sum(arr,y,x);
 }
