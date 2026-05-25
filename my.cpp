@@ -1,14 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    int t;
-    cin>>t;
+int sequence(int x) {
+    if (x == 1) return 1;
 
-    while (t--) {
-        int x;
-        cin>>x;
-
-        cout<<x%10  + x/ 10<<endl;
+    if (x % 2 == 0) {
+        return 1 + sequence(x/2);
     }
+    if (x % 2 != 0) {
+        return 1 + sequence(3 * x + 1);
+    }
+}
+
+int main() {
+    int x;
+    cin>>x;
+
+    cout<<sequence(x);
 }
