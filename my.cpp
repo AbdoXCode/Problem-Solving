@@ -1,21 +1,43 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-long long suffix_sum(long long arr[],long long y,long long x) {
-    if (y == 0) return 0;
+int main()
+{
+    string s;
+    bool isOpen = false;
+    while (getline(cin, s))
+    {
+        bool newLine = false;
+        if (s.size() == 0 || s == " ")
+        {
+            continue;
+        }
 
-    return arr[x-y] + suffix_sum(arr ,y-1,x);
-}
+        for (int i = 0; i < s.size(); i++)
+        {
+            if (s[i] == '/' && s[i + 1] == '/' && !isOpen)
+            {
+                break;
+            }
+            else if (s[i] == '/' && s[i + 1] == '*')
+            {
+                i++;
+                isOpen = true;
+            }
+            else if (s[i] == '*' && s[i + 1] == '/' && isOpen)
+            {
+                i++;
+                isOpen = false;
+            }
+            else if (!isOpen)
+            {
 
-int main() {
-    long long x,y;
-    cin>>x>>y;
+                cout << s[i];
+                newLine = true;
+            }
+        }
 
-    long long arr[x];
-
-    for (long long i=0;i<x;i++) {
-        cin>>arr[i];
+        if (newLine && !isOpen)
+            cout << endl;
     }
-
-    cout<<suffix_sum(arr,y,x);
 }
