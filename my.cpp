@@ -1,43 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-    string s;
-    bool isOpen = false;
-    while (getline(cin, s))
-    {
-        bool newLine = false;
-        if (s.size() == 0 || s == " ")
-        {
-            continue;
+int main(){
+    int t;
+    cin>>t;
+
+    while (t--) {
+        int x;
+        cin>>x;
+
+        int animals = x / 4;
+
+        if (x % 4 != 0) {
+            animals++;
         }
 
-        for (int i = 0; i < s.size(); i++)
-        {
-            if (s[i] == '/' && s[i + 1] == '/' && !isOpen)
-            {
-                break;
-            }
-            else if (s[i] == '/' && s[i + 1] == '*')
-            {
-                i++;
-                isOpen = true;
-            }
-            else if (s[i] == '*' && s[i + 1] == '/' && isOpen)
-            {
-                i++;
-                isOpen = false;
-            }
-            else if (!isOpen)
-            {
-
-                cout << s[i];
-                newLine = true;
-            }
-        }
-
-        if (newLine && !isOpen)
-            cout << endl;
+        cout<<animals<<endl;
     }
 }
