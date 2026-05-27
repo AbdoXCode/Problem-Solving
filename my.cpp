@@ -1,31 +1,37 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-auto shiftArray(int arr[],int n,int x) {
-    while (x--) {
-        int last = arr[n-1];
-        for (int i =n-1;i>=0;i--) {
-            if (i == 0) {
-                arr[0] = last;
-            }else {
-                arr[i] = arr[i-1];
-            }
+void shiftZeros(int arr[],int n) {
+    vector<int> arrShifted;
+    int zeros = 0;
+
+    for (int i =0;i<n;i++) {
+        if (arr[i] != 0) {
+            arrShifted.push_back(arr[i]);
+        }else {
+            zeros ++;
         }
     }
+
+    while (zeros--) {
+        arrShifted.push_back(0);
+    }
+    for (int i =0;i<n;i++) {
+        cout<<arrShifted[i]<<" ";
+    }
+
 }
 int main(){
-    int n,x;
-    cin>>n>>x;
+    int n;
+    cin>>n;
 
     int arr[n];
 
-    for (int i=0;i<n;i++) {
+    for (int i =0;i<n;i++) {
         cin>>arr[i];
     }
 
-    shiftArray(arr,n,x);
+    shiftZeros(arr,n);
 
-    for (int i=0;i<n;i++) {
-        cout<<arr[i]<<" ";
-    }
+
 }
