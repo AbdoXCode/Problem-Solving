@@ -2,21 +2,20 @@
 using namespace std;
 
 int main(){
-    int n,a,b;
-    cin>>n>>a>>b;
+    int t;
+    cin>>t;
 
-    long long sum =0;
-    for (int i =1;i<=n;i++) {
-        int ll = i;
-        int sumDigits = 0;
-        while (ll > 0) {
-            sumDigits += ll % 10;
-            ll /=10;
+    while (t--) {
+        long long l,r;
+        cin>>l>>r;
+
+        if (l>r) {
+            swap(l,r);
         }
-        if (sumDigits >= a && sumDigits<=b) {
-            sum+=i;
-        }
+
+        long long sumL = l * (l-1) / 2;
+        long long sumR = r * (r+1) / 2;
+
+        cout<<sumR - sumL<<endl;
     }
-
-    cout<<sum;
 }
