@@ -2,34 +2,22 @@
 using namespace std;
 
 int main(){
-    int t;
-    cin>>t;
+    int n;
+    cin>>n;
 
-    while (t--) {
-        long long n,s;
-        cin>>n>>s;
+    int arr[101];
 
-        if (s > n*(n+1) / 2) {
-            cout<<-1<<endl;
-            continue;
-        }
-
-        vector<long long>ans;
-
-        for(long long i = n;i >= 1;i--) {
-            if (s >= i) {
-                ans.push_back(i);
-                s-=i;
-            }
-            if (s==0) {
-                break;
-            }
-        }
-
-        for (long long x:ans) {
-            cout<<x<<" ";
-        }
-        cout<<endl;
-
+    for (int i =0;i<n;i++) {
+        cin>>arr[i];
     }
+
+    for (int i =0;i<n;i++) {
+        if (arr[i] ==0) {
+            reverse(arr,arr + i);
+        }
+    }
+    for (int i =0;i<n;i++) {
+        cout<<arr[i]<<" ";
+    }
+
 }
