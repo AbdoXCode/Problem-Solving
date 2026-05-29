@@ -6,16 +6,30 @@ int main(){
     cin>>t;
 
     while (t--) {
-        long long l,r;
-        cin>>l>>r;
+        long long n,s;
+        cin>>n>>s;
 
-        if (l>r) {
-            swap(l,r);
+        if (s > n*(n+1) / 2) {
+            cout<<-1<<endl;
+            continue;
         }
 
-        long long sumL = l * (l-1) / 2;
-        long long sumR = r * (r+1) / 2;
+        vector<long long>ans;
 
-        cout<<sumR - sumL<<endl;
+        for(long long i = n;i >= 1;i--) {
+            if (s >= i) {
+                ans.push_back(i);
+                s-=i;
+            }
+            if (s==0) {
+                break;
+            }
+        }
+
+        for (long long x:ans) {
+            cout<<x<<" ";
+        }
+        cout<<endl;
+
     }
 }
