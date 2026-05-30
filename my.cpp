@@ -2,25 +2,38 @@
 using namespace std;
 
 int main(){
-    int n;
-    cin>>n;
+    long long n,k;
+    cin>>n>>k;
 
-    deque<long long> dqu;
+    long long sum = 0;
 
-    for (int i =0;i<n;i++) {
-        long long x;
-        cin>>x;
+    long long arr[n+1];
 
-        dqu.push_back(x);
+    for (long long i =0;i<n;i++) {
+        cin>>arr[i];
     }
 
-    while (!dqu.empty()) {
-        cout<<dqu.front()<<" ";
-        dqu.pop_front();
-        if (!dqu.empty()) {
-            cout<<dqu.back()<<" ";
-            dqu.pop_back();
+    sort(arr,arr+n);
+
+
+    long long i = n - 1;
+
+    while (k--){
+        long long prevSum = sum;
+        sum += arr[i];
+        if (sum >= prevSum) {
+            i--;
+        }else {
+            sum = prevSum;
+            break;
         }
+
+    }
+
+    if (sum > 0) {
+        cout<<sum;
+    }else {
+        cout<< 0;
     }
 
 
