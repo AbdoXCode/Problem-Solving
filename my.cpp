@@ -2,39 +2,45 @@
 using namespace std;
 
 int main(){
-    long long n,k;
-    cin>>n>>k;
+    int t;
+    cin>>t;
 
-    long long sum = 0;
+    while (t--) {
+        int n,nOdd=0,nEven=0,op = 0;
+        cin>>n;
 
-    long long arr[n+1];
+        int arr[n];
 
-    for (long long i =0;i<n;i++) {
-        cin>>arr[i];
-    }
-
-    sort(arr,arr+n);
-
-
-    long long i = n - 1;
-
-    while (k--){
-        long long prevSum = sum;
-        sum += arr[i];
-        if (sum >= prevSum) {
-            i--;
-        }else {
-            sum = prevSum;
-            break;
+        for (int i =0;i<n;i++) {
+            cin>>arr[i];
         }
 
+        for (int a : arr) {
+            if (a % 2 == 0) {
+                nEven ++;
+            }else {
+                nOdd ++;
+            }
+        }
+
+        for (int i =0;i<n;i++) {
+            if (arr[i] % 2 ==0 && nEven > nOdd) {
+                arr[i]++;
+                nEven --;
+                nOdd ++;
+                op++;
+            }else if (arr[i] % 2 !=0 && nEven < nOdd) {
+                arr[i]--;
+                nEven ++;
+                nOdd --;
+                op++;
+            }
+        }
+
+        if (nOdd > nEven || nEven > nOdd) {
+            cout<<-1<<endl;
+        }else {
+            cout<<op<<endl;
+        }
     }
-
-    if (sum > 0) {
-        cout<<sum;
-    }else {
-        cout<< 0;
-    }
-
-
 }
