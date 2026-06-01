@@ -2,45 +2,20 @@
 using namespace std;
 
 int main(){
-    int t;
-    cin>>t;
+    int n,h,sum = 0;
+    cin>>n>>h;
 
-    while (t--) {
-        int n,nOdd=0,nEven=0,op = 0;
-        cin>>n;
+    int arr[n];
 
-        int arr[n];
-
-        for (int i =0;i<n;i++) {
-            cin>>arr[i];
-        }
-
-        for (int a : arr) {
-            if (a % 2 == 0) {
-                nEven ++;
-            }else {
-                nOdd ++;
-            }
-        }
-
-        for (int i =0;i<n;i++) {
-            if (arr[i] % 2 ==0 && nEven > nOdd) {
-                arr[i]++;
-                nEven --;
-                nOdd ++;
-                op++;
-            }else if (arr[i] % 2 !=0 && nEven < nOdd) {
-                arr[i]--;
-                nEven ++;
-                nOdd --;
-                op++;
-            }
-        }
-
-        if (nOdd > nEven || nEven > nOdd) {
-            cout<<-1<<endl;
+    for (int i =0;i<n;i++) {
+        cin>>arr[i];
+        if (arr[i] > h) {
+            sum += 2;
         }else {
-            cout<<op<<endl;
+            sum += 1;
         }
     }
+
+    cout<<sum;
+
 }
