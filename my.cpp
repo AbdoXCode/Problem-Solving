@@ -2,20 +2,18 @@
 using namespace std;
 
 int main(){
-    int n,h,sum = 0;
-    cin>>n>>h;
+    int t,sum = 0,maxSum = 0;
+    cin>>t;
 
-    int arr[n];
+    while (t--) {
+        int x,y;
+        cin>>x>>y;
 
-    for (int i =0;i<n;i++) {
-        cin>>arr[i];
-        if (arr[i] > h) {
-            sum += 2;
-        }else {
-            sum += 1;
-        }
+        sum-=x;
+        sum+=y;
+        maxSum = max(sum,maxSum);
     }
 
-    cout<<sum;
+    cout<<maxSum<<endl;
 
 }
