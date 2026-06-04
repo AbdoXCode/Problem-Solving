@@ -2,19 +2,30 @@
 using namespace std;
 
 int main(){
-    int t;
-    cin>>t;
+    int n;
+    cin>>n;
 
-    while (t--) {
-        int x;
-        cin>>x;
+    int arr[n];
 
-        if (x < 0) {
-            cout<<x<<endl;
-        }else if (x >= 67){
-            cout<<67<<endl;
-        }else {
-            cout<<++x<<endl;
+    int maxPos = 0;
+    int minPos = 0;
+
+    for (int i =0;i<n;i++) {
+        cin>>arr[i];
+    }
+    for (int i = 0; i < n; i++) {
+        if (arr[i] > arr[maxPos]) {
+            maxPos = i;
+        }
+
+        if (arr[i] <= arr[minPos]) {
+            minPos = i;
         }
     }
+
+    int ans = maxPos + (n-1-minPos);
+
+    if (maxPos > minPos) ans--;
+
+    cout<<ans;
 }
