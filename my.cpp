@@ -2,30 +2,14 @@
 using namespace std;
 
 int main(){
-    int n;
-    cin>>n;
+    long long t;
+    cin>>t;
 
-    int arr[n];
+    while (t--) {
+        long long a,b,moves = 0;
+        cin>>a>>b;
 
-    int maxPos = 0;
-    int minPos = 0;
-
-    for (int i =0;i<n;i++) {
-        cin>>arr[i];
+        moves = (b - (a % b))  % b;
+        cout<<moves<<endl;
     }
-    for (int i = 0; i < n; i++) {
-        if (arr[i] > arr[maxPos]) {
-            maxPos = i;
-        }
-
-        if (arr[i] <= arr[minPos]) {
-            minPos = i;
-        }
-    }
-
-    int ans = maxPos + (n-1-minPos);
-
-    if (maxPos > minPos) ans--;
-
-    cout<<ans;
 }
