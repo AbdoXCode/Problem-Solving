@@ -2,14 +2,26 @@
 using namespace std;
 
 int main(){
-    long long t;
-    cin>>t;
+    int n,k,sum =0;
+    cin>>n>>k;
 
-    while (t--) {
-        long long a,b,moves = 0;
-        cin>>a>>b;
+    int arr[n];
+    for (int i =0;i<n;i++) {
+        cin>>arr[i];
+        sum +=arr[i];
+    }
 
-        moves = (b - (a % b))  % b;
-        cout<<moves<<endl;
+    int i = 0;
+    int steps = 0;
+
+    while (arr[k -1] <= arr[i] && n > i && arr[i] != 0) {
+        i++;
+        steps++;
+    }
+
+    if (sum >0) {
+        cout<<steps;
+    }else {
+        cout<<0;
     }
 }
