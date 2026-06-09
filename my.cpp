@@ -2,21 +2,14 @@
 using namespace std;
 
 int main(){
-    int t;
-    cin>>t;
+    int n, k, l, c, d, p, nl, np;
+    cin>>n>>k>>l>>c>>d>>p>>nl>>np;
 
-    while (t--) {
-        int n;
-        cin>>n;
+    int ml = (k*l) / nl;
+    int lime = c * d;
 
-        if (n <= 1399) {
-            cout<<"Division 4"<<endl;
-        }else if (n >=1400 && n<=1599) {
-            cout<<"Division 3"<<endl;
-        }else if (n >= 1600 && n<= 1899) {
-            cout<<"Division 2"<<endl;
-        }else {
-            cout<<"Division 1"<<endl;
-        }
-    }
+    int salt_toasts = (p / np);
+
+    int toasts = min(salt_toasts , min(lime , ml)) / n;
+    cout<<toasts;
 }
