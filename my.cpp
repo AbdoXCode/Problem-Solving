@@ -2,14 +2,20 @@
 using namespace std;
 
 int main(){
-    int n, k, l, c, d, p, nl, np;
-    cin>>n>>k>>l>>c>>d>>p>>nl>>np;
+    int t;
+    cin>>t;
 
-    int ml = (k*l) / nl;
-    int lime = c * d;
+    while (t--) {
+        long long a,b,steps =0;
+        cin>>a>>b;
 
-    int salt_toasts = (p / np);
+        if (a==b) {
+            cout<<0<<endl;
+            continue;
+        }
 
-    int toasts = min(salt_toasts , min(lime , ml)) / n;
-    cout<<toasts;
+        long long diff = abs(b-a);
+
+        cout<<(diff+9) / 10<<endl;
+    }
 }
