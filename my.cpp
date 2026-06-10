@@ -6,16 +6,23 @@ int main(){
     cin>>t;
 
     while (t--) {
-        long long a,b,steps =0;
-        cin>>a>>b;
+        string x;
+        cin>>x;
 
-        if (a==b) {
-            cout<<0<<endl;
-            continue;
+        string a1 = x.substr(0,3);
+        string a2 = x.substr(3);
+
+        int sum1 = 0;
+        int sum2 = 0;
+
+        for (char c:a1) {
+            sum1 += (c -'0');
+        }
+        for (char c:a2) {
+           sum2 += (c-'0');
         }
 
-        long long diff = abs(b-a);
-
-        cout<<(diff+9) / 10<<endl;
+        if (sum1 == sum2) cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
     }
 }
