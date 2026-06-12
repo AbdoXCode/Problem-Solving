@@ -5,16 +5,23 @@ int main(){
     int t;
     cin>>t;
 
+    int sum = 0;
     while (t--) {
-        int a,b,c;
-        cin>>a>>b>>c;
+        int x,y;
+        cin>>x>>y;
 
-        if (a<b && b<c) {
-            cout<<"STAIR"<<endl;
-        }else if (a<b && b>c) {
-            cout<<"PEAK"<<endl;
-        }else {
-            cout<<"NONE"<<endl;
+        if (x>y) {
+            sum++;
+        }else if (x<y) {
+            sum--;
         }
+    }
+
+    if (sum >0) {
+        cout<<"Mishka"<<endl;
+    }else if (sum ==0) {
+        cout<<"Friendship is magic!^^"<<endl;
+    }else {
+        cout<<"Chris"<<endl;
     }
 }
