@@ -2,17 +2,22 @@
 using namespace std;
 
 int main(){
-    int t;
-    cin>>t;
+    int n;
+    cin>>n;
 
-    while (t--) {
-        int a,b,c;
-        cin>>a>>b>>c;
+    int arr[n];
+    int maximum =0,sum =0;
 
-        if (a+b == c) {
-            cout<<"+"<<endl;
-        }else {
-            cout<<"-"<<endl;
-        }
+    for (int i =0 ;i<n;i++) {
+        cin>>arr[i];
+
+        maximum = max(maximum,arr[i]);
     }
+
+    for (int i =0;i<n;i++) {
+        sum += (maximum - arr[i]);
+    }
+
+    cout<<sum;
+
 }
