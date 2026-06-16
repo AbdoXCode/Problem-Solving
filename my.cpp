@@ -2,23 +2,27 @@
 using namespace std;
 
 int main(){
-    int n;
-    cin >> n;
+   int t;
+   cin>>t;
 
-    vector<int> a(n);
-    set<int> s;
+   while (t--) {
+      char x;
+      cin>>x;
 
-    for (int i = 0; i < n; i++) {
-        cin >> a[i];
-        s.insert(a[i]);
-    }
+      bool isfound = false;
 
-    int count = 0;
+      for (int i =0;i<10;i++) {
+         if ("codeforces"[i] == x) {
+            isfound = true;
+            break;
+         }
+      }
 
-    for (int x : a) {
-        if (s.count(x + 1))
-            count++;
-    }
+      if (isfound) {
+         cout<<"YES"<<endl;
+      }else {
+         cout<<"NO"<<endl;
+      }
 
-    cout << count << " ";
+   }
 }
