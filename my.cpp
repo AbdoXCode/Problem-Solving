@@ -6,23 +6,13 @@ int main(){
    cin>>t;
 
    while (t--) {
-      char x;
-      cin>>x;
+      int a,b,c;
+      cin>>a>>b>>c;
 
-      bool isfound = false;
+      int arr[3] ={a,b,c};
 
-      for (int i =0;i<10;i++) {
-         if ("codeforces"[i] == x) {
-            isfound = true;
-            break;
-         }
-      }
+      sort(arr,arr+3);
 
-      if (isfound) {
-         cout<<"YES"<<endl;
-      }else {
-         cout<<"NO"<<endl;
-      }
-
+      cout<<arr[1]<<endl;
    }
 }
