@@ -2,47 +2,32 @@
 using namespace std;
 
 int main(){
-   int n;
-   cin>>n;
+    string original = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-   while (n--) {
-      string s,t;
-      cin>>s>>t;
+    string cipher = "PgEfTYaWGHjDAmxQqFLRpCJBownyUKZXkbvzIdshurMilNSVOtec#@_!=.+-*/";
 
-      char arr1[256];
-      char arr2[256];
+    unordered_map<char,char> encrypt,decrypt;
 
-      for (int i=0;i<s.length();i++) {
-         arr1[i] = s[i];
-      }
-      for (int i=0;i<t.length();i++) {
-         arr2[i] = t[i];
-      }
+    for (int i = 0; i < original.size(); i++) {
+        encrypt[original[i]] = cipher[i];
+        decrypt[cipher[i]] = original[i];
+    }
 
-      string final_string;
+    int t;
+    cin>>t;
 
-      if (s.length() == t.length()) {
-         for (int i=0;i<s.length();i++) {
-            final_string += s[i];
-            final_string += t[i];
-         }
-      }else if (s.length() > t.length()) {
-         for (int i =0;i<t.length();i++) {
-            final_string += s[i];
-            final_string += t[i];
-         }
-         final_string += s.substr(t.length() );
-      }else {
-         for (int i =0;i<s.length();i++) {
-            final_string += s[i];
-            final_string += t[i];
-         }
-         final_string += t.substr(s.length() );
-      }
+    string x;
+    cin>>x;
 
-      cout<<final_string<<endl;
-      
-   }
+    if (t==1) {
+        for (char c:x) {
+            cout<<encrypt[c];
+        }
+    }else {
+        for (char c:x) {
+            cout<<decrypt[c];
+        }
+    }
 
 
 }
