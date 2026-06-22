@@ -2,32 +2,47 @@
 using namespace std;
 
 int main(){
-    string original = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    int ra,ca,rb,cb;
+    cin>>ra>>ca;
 
-    string cipher = "PgEfTYaWGHjDAmxQqFLRpCJBownyUKZXkbvzIdshurMilNSVOtec#@_!=.+-*/";
+    int matrixA[ra][ca];
 
-    unordered_map<char,char> encrypt,decrypt;
 
-    for (int i = 0; i < original.size(); i++) {
-        encrypt[original[i]] = cipher[i];
-        decrypt[cipher[i]] = original[i];
-    }
 
-    int t;
-    cin>>t;
-
-    string x;
-    cin>>x;
-
-    if (t==1) {
-        for (char c:x) {
-            cout<<encrypt[c];
-        }
-    }else {
-        for (char c:x) {
-            cout<<decrypt[c];
+    for (int i=0;i<ra;i++) {
+        for (int j=0;j<ca;j++) {
+            cin>>matrixA[i][j];
         }
     }
 
+    cin>>rb>>cb;
+    int matrixB[rb][cb];
 
+    for (int i=0;i<rb;i++) {
+        for (int j=0;j<cb;j++) {
+            cin>>matrixB[i][j];
+        }
+    }
+
+    int result[ra][cb];
+    for (int i = 0; i < ra; i++) {
+        for (int j = 0; j < cb; j++) {
+            result[i][j] = 0;
+        }
+    }
+
+    for (int i=0;i<ra;i++) {
+        for (int j=0;j<cb;j++) {
+            for (int z=0;z<ca;z++) {
+                result[i][j] += matrixA[i][z] * matrixB[z][j];
+            }
+        }
+    }
+
+    for (int i=0;i<ra;i++) {
+        for (int j=0;j<cb;j++) {
+            cout<<result[i][j]<<" ";
+        }
+        cout<<endl;
+    }
 }
