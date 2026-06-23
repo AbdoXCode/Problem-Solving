@@ -1,47 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main(){
-    int ra,ca,rb,cb;
-    cin>>ra>>ca;
+int main() {
+    int n;
+    cin>>n;
 
-    int matrixA[ra][ca];
+    long long pascal[31][31] = {};
 
+    for (int i =0;i<n;i++) {
+        pascal[i][0] = pascal[i][i] = 1;
 
-
-    for (int i=0;i<ra;i++) {
-        for (int j=0;j<ca;j++) {
-            cin>>matrixA[i][j];
+        for (int j = 1;j<i;j++) {
+            pascal[i][j] = pascal[i-1][j-1] + pascal[i-1][j];
         }
-    }
 
-    cin>>rb>>cb;
-    int matrixB[rb][cb];
-
-    for (int i=0;i<rb;i++) {
-        for (int j=0;j<cb;j++) {
-            cin>>matrixB[i][j];
-        }
-    }
-
-    int result[ra][cb];
-    for (int i = 0; i < ra; i++) {
-        for (int j = 0; j < cb; j++) {
-            result[i][j] = 0;
-        }
-    }
-
-    for (int i=0;i<ra;i++) {
-        for (int j=0;j<cb;j++) {
-            for (int z=0;z<ca;z++) {
-                result[i][j] += matrixA[i][z] * matrixB[z][j];
-            }
-        }
-    }
-
-    for (int i=0;i<ra;i++) {
-        for (int j=0;j<cb;j++) {
-            cout<<result[i][j]<<" ";
+        for (int j=0;j<=i;j++) {
+            cout<<pascal[i][j]<<" ";
         }
         cout<<endl;
     }
