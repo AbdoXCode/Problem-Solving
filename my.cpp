@@ -2,32 +2,19 @@
 using namespace std;
 
 int main() {
-    int t,x;
-    string n;
-    cin>>t>>n>>x;
+    int x,y,r,n;
+    cin>>x>>y>>r>>n;
 
-    if (t==1) {
-        long long decimalVal = stoll(n, nullptr, x);
+    while (n--) {
+        int i,k;
+        cin>>i>>k;
 
-        cout<<decimalVal;
-    }else {
-        long long decimal = stoll(n);
-        string binary;
+        double dis = sqrt(pow((i-x),2) + pow((k-y),2));
 
-        while (decimal > 0) {
-            long long rem = decimal % x;
-
-            if (rem < 10) {
-                binary+=char(rem + '0');
-            }else {
-                binary+=char(rem - 10 + 'A');
-            }
-
-            decimal /= x;
+        if (dis <= r) {
+            cout<<"YES"<<endl;
+        }else {
+            cout<<"NO"<<endl;
         }
-
-        reverse(binary.begin(),binary.end());
-
-        cout<<binary;
     }
 }
