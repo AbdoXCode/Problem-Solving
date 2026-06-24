@@ -2,21 +2,32 @@
 using namespace std;
 
 int main() {
-    int n;
-    cin>>n;
+    int t,x;
+    string n;
+    cin>>t>>n>>x;
 
-    long long pascal[31][31] = {};
+    if (t==1) {
+        long long decimalVal = stoll(n, nullptr, x);
 
-    for (int i =0;i<n;i++) {
-        pascal[i][0] = pascal[i][i] = 1;
+        cout<<decimalVal;
+    }else {
+        long long decimal = stoll(n);
+        string binary;
 
-        for (int j = 1;j<i;j++) {
-            pascal[i][j] = pascal[i-1][j-1] + pascal[i-1][j];
+        while (decimal > 0) {
+            long long rem = decimal % x;
+
+            if (rem < 10) {
+                binary+=char(rem + '0');
+            }else {
+                binary+=char(rem - 10 + 'A');
+            }
+
+            decimal /= x;
         }
 
-        for (int j=0;j<=i;j++) {
-            cout<<pascal[i][j]<<" ";
-        }
-        cout<<endl;
+        reverse(binary.begin(),binary.end());
+
+        cout<<binary;
     }
 }
