@@ -2,19 +2,37 @@
 using namespace std;
 
 int main() {
-    int x,y,r,n;
-    cin>>x>>y>>r>>n;
+    int t;
+    cin>>t;
 
-    while (n--) {
-        int i,k;
-        cin>>i>>k;
+    int tc = 0;
+    while (t--) {
+        int points;
+        cin>>points;
 
-        double dis = sqrt(pow((i-x),2) + pow((k-y),2));
+        int left = -1000000000;
+        int bottom = -1000000000;
+        int right = 1000000000;
+        int top = 1000000000;
 
-        if (dis <= r) {
-            cout<<"YES"<<endl;
-        }else {
-            cout<<"NO"<<endl;
+        for (int i =0;i<points;i++){
+            int x1,x2,y1,y2;
+            cin>>x1>>y1>>x2>>y2;
+
+            left = max(left, x1);
+            bottom = max(bottom, y1);
+            right = min(right, x2);
+            top = min(top, y2);
+
         }
+
+        long long area = 0;
+
+        if (right > left && top > bottom) {
+            area = (right - left) * (top - bottom);
+        }
+
+        tc++;
+        cout << "Case #" << tc << ": " << area << endl;
     }
 }
