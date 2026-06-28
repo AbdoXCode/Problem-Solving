@@ -1,38 +1,44 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+bool prime(long long n) {
+    if (n ==0 || n == 1) return false;
+
+    for (long long i =2;i*i<=n;i++) {
+        if (n%i == 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
 int main() {
+    long long fib[51];
+    fib[1] = 0;
+    fib[2] = 1;
+
+    for (int i = 3; i <= 50; i++) {
+        fib[i] = fib[i - 1] + fib[i - 2];
+    }
+
+    bool isPrime[51];
+    for (int i = 1; i <= 50; i++) {
+        isPrime[i] = prime(fib[i]);
+    }
+
     int t;
     cin>>t;
 
-    int tc = 0;
+
+
     while (t--) {
-        int points;
-        cin>>points;
+        int x;
+        cin>>x;
 
-        int left = -1000000000;
-        int bottom = -1000000000;
-        int right = 1000000000;
-        int top = 1000000000;
-
-        for (int i =0;i<points;i++){
-            int x1,x2,y1,y2;
-            cin>>x1>>y1>>x2>>y2;
-
-            left = max(left, x1);
-            bottom = max(bottom, y1);
-            right = min(right, x2);
-            top = min(top, y2);
-
+        if (isPrime[x]) {
+            cout<<"prime"<<endl;
+        }else {
+            cout<<"not prime"<<endl;
         }
-
-        long long area = 0;
-
-        if (right > left && top > bottom) {
-            area = (right - left) * (top - bottom);
-        }
-
-        tc++;
-        cout << "Case #" << tc << ": " << area << endl;
     }
 }
